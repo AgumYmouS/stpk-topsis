@@ -205,8 +205,8 @@ include 'koneksiDatabase.php';
 
         <?php
         $no = 1;
-        $queryData = mysql_query("select * from data");
-        while ($isiData = mysql_fetch_array($queryData)) {
+        $queryData = mysqli_query($conn, "select * from data");
+        while ($isiData = mysqli_fetch_array($queryData)) {
             echo '
     <tr>
         <td align="center">' . $no . '</td>

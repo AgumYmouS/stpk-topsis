@@ -121,7 +121,7 @@ if (isset($_POST['proses'])) {
         echo '<script>alert("Lengkapi Alternatif !!!")</script>';
     }
     else {    
-        mysql_query("insert into data
+        mysqli_query($conn, "insert into data
                         (
 
                         a1c1,
@@ -181,7 +181,7 @@ if (isset($_POST['proses'])) {
                         ");
     
         echo '<script>alert("Data Berhasil di Simpan !!!")</script>';
-        echo '<meta HTTP-EQUIV="REFRESH" content="0; url=index.php?page=data">'; 
+        echo '<meta HTTP-EQUIV="REFRESH" content="0; url=hasil.php">'; 
     }
 }
 ?>

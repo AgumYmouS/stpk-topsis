@@ -207,7 +207,7 @@
     include 'koneksiDatabase.php';
     if (isset($_POST['submit'])) {
     $id = rand();
-    mysql_query("INSERT INTO `alternatif`(`id`, `nama_alternatif`) VALUES ('$id', '$_POST[alternatif]')");
+    mysqli_query($conn, "INSERT INTO `alternatif`(`id`, `nama_alternatif`) VALUES ('$id', '$_POST[alternatif]')");
         echo '<script>alert("Data Berhasil di Simpan !!!")</script>';
         echo '<meta HTTP-EQUIV="REFRESH" content="0; url=alternatif.php">';
         }

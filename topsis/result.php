@@ -30,8 +30,8 @@ if (empty($_GET['hasil']) && empty($_GET['hapus'])) {
 
         <?php
         $no = 1;
-        $queryData = mysql_query("select * from data");
-        while ($isiData = mysql_fetch_array($queryData)) {
+        $queryData = mysqli_query($conn, "select * from data");
+        while ($isiData = mysqli_fetch_array($queryData)) {
             echo '
     <tr>
         <td align="center">' . $no . '</td>
@@ -73,8 +73,8 @@ if (empty($_GET['hasil']) && empty($_GET['hapus'])) {
         <div class="x_content" style="font-weight:bold;">';
 
     if (!empty($_GET['hasil'])) {
-        $queryDataSingle = mysql_query("select * from data where id_data=$_GET[hasil]");
-        $isiDataSingle = mysql_fetch_array($queryDataSingle);
+        $queryDataSingle = mysqli_query($conn, "select * from data where id_data=$_GET[hasil]");
+        $isiDataSingle = mysqli_fetch_array($queryDataSingle);
         include 'function.php';
         echo '
             <h4>Nilai setiap alternatif di setiap kriteria</h4>
@@ -251,10 +251,10 @@ if (empty($_GET['hasil']) && empty($_GET['hapus'])) {
    <?php
                 include('koneksiDatabase.php');
                 $sql   = "SELECT nama_alternatif FROM alternatif";
-                $query = mysql_query( $sql ); 
+                $query = mysqli_query($conn, $sql); 
                 $arraydata = array();
                 $key = 0;
-                while( $ret = mysql_fetch_array( $query )) {
+                while( $ret = mysqli_fetch_array( $query )) {
                    $arraydata[$key] = $ret['nama_alternatif'];
                    $key++;
                  };
@@ -309,9 +309,9 @@ if (empty($_GET['hasil']) && empty($_GET['hapus'])) {
     <h3 style="color:white">Alternatif yang dipilih : Alternatif yang ' . $alternatif . ' = ' . $hasil . '</h3></p>
             ';
     } else if (!empty($_GET['hapus'])) {
-        mysql_query("delete from data where id_data=$_GET[hapus]");
+        mysqli_query($conn, "delete from data where id_data=$_GET[hapus]");
         echo '<script>alert("Berhasil di Hapus !!!")</script>';
-        echo '<meta HTTP-EQUIV="REFRESH" content="0; url=index.php?page=data">';
+        echo '<meta HTTP-EQUIV="REFRESH" content="0; url=hasil.php">';
     }
 }
 ?>

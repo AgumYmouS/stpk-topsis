@@ -203,7 +203,7 @@
             echo "</table>";
         }
         if (!empty($_GET['hapus'])) {
-        mysql_query("delete from alternatif where id=$_GET[hapus]");
+        mysqli_query($conn, "delete from alternatif where id=$_GET[hapus]");
         echo '<script>alert("Berhasil di Hapus !!!")</script>';
         echo '<meta HTTP-EQUIV="REFRESH" content="0; url=alternatif.php">';
     }
